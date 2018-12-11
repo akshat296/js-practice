@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="btns" style="width:75%"></div>
+    <!-- <blink>Expressions</blink>
+    <label>Adder: </label>
+    <input type="text" name="Add" value="" onkeyup="test(this.value).then((sum)=>
+    {
+        document.getElementById('result').innerHTML = sum;
+    }
+    )" />
+    </br>
+    </br>
+    <p id="result">0</p> -->
+    <script>
+        let test = promiser();
+        function promiser() {
+            var promise = Promise.resolve(0);
+
+            return function (value) {
+                random = Math.random() * 800 * Math.random();
+                promise.then(function () {
+                    promise = new Promise((resolve, reject) => {
+                        setTimeout(() => {
+                            let sum = value.split("").reduce((acc, item) => {
+                                return acc + Number(item)
+                            }, 0);
+                            resolve(sum);
+                        }, random);
+
+                    });
+
+
+                });
+                return promise;
+            }
+        }
+    </script>
+    <script>
+        function print() {
+            console.log('hello world');
+        }
+        function debouce(fn) {
+            var done = false
+            
+            return ()=>{
+            if(done === false){
+                done = true;
+                var num = setTimeout(() => {
+                fn();
+                done = false;
+            }, 2000);
+            }
+           
+        }}
+        let a = debouce(print);
+        a();
+        a();
+        a();
+        a();
+    </script>
+
+</body>
+<script>
+    let d = -1;
+    let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    calc(arr)
+    function counter(e) {
+
+        e.target.value = ++d;
+
+        if (d >= 8) {
+            d = 0;
+            e.target.value = d;
+        }
+        document.getElementById('btns').innerHTML = "";
+        let b = [
+            [
+                4, 1, 2,
+                7, 5, 3,
+                8, 9, 6
+            ],
+            [
+                7, 4, 1,
+                8, 5, 2,
+                9, 6, 3
+            ],
+            [
+                8, 7, 4,
+                9, 5, 1,
+                6, 3, 2
+            ],
+            [
+                9, 8, 7,
+                6, 5, 4,
+                3, 2, 1
+            ],
+            [
+                6, 9, 8,
+                3, 5, 7,
+                2, 1, 4
+            ],
+            [
+                3, 6, 9,
+                2, 5, 8,
+                1, 4, 7
+            ],
+            [
+                2, 3, 6,
+                1, 5, 9,
+                4, 7, 8
+            ],
+            [
+                1, 2, 3,
+                4, 5, 6,
+                7, 8, 9
+            ],
+        ];
+
+        calc(b[e.target.value]);
+
+    };
+    function calc(arr) {
+        arr.forEach((i, index) => {
+            var btn = document.createElement("button");
+            if (index === 0) {
+                btn.id = "bt" + (index + 1);
+            }
+            else {
+                btn.id = "btn" + (index + 1);
+            }
+            btn.id = "btn" + (index + 1);
+            btn.style.width = "96px";
+            btn.style.height = "48px";
+            btn.style.fontSize = "24px";
+            btn.innerHTML = i;
+            if (index === 4) {
+                btn.onclick = counter;
+                btn.value = 0;
+            };
+            if ((index) % 3 === 0) {
+                document.getElementById('btns').appendChild(document.createElement("br"));
+            }
+            document.getElementById('btns').appendChild(btn);
+        });
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>
