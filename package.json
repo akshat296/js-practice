@@ -1,0 +1,27 @@
+{
+  "name": "Practice",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./node_modules/mocha/bin/mocha *.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akshat296/js-practice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akshat296/js-practice/issues"
+  },
+  "homepage": "https://github.com/akshat296/js-practice#readme",
+  "description": "",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "jest": "^23.6.0"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  }
+}

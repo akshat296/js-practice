@@ -20,7 +20,13 @@ function curryMaker(fn){
     return current(fn, 1, args)
 }
 var value = curryMaker(add);
-
-
+function curry(f, a = []) {
+  return (...p) =>
+    (o => o.length >= f.length ? f(...o) : curry(f, o))([
+      ...a,
+      ...p,
+    ]);
+}
+var value2 = curry(add);
 console.log("add",add(3,5,6,7));
-console.log("curryMaker Add",value(3)(5)(6)(7));
+console.log("curryMaker Add",value(3)(5)(6)(7),value2(3)(5)(6)(7));
